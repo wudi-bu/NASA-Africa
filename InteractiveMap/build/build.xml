@@ -1,0 +1,68 @@
+<project name="Interactive Agricultural Map of Africa Build Script" default="createWAR" basedir=".">
+
+	<description>
+		Interactive Agricultural Map of Africa Build
+    </description>
+	
+	<!-- load the properties -->
+	<property file="build.properties" />
+
+	<!-- we are using a bunch of tools, here is where they live -->
+	<path id="build.classpath">
+		<fileset dir="${tomcat.lib.dir}">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="${jdk.lib.dir}">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="${lib.dir}">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+
+	<!-- cleans the compile or build output directories -->
+	<target name="clean">
+		<delete dir="${build.base.dir}" />
+		<delete dir="${dist.dir}" />
+	</target>
+
+	<!-- creates the output directories -->
+	<target name="init" depends="clean">
+		<mkdir dir="${build.dir}" />
+		<mkdir dir="${dist.dir}" />
+	</target>
+
+	<!-- compiles the domain classes, output goes to build.dir  -->
+	<target name="compile" depends="init">
+
+		<javac srcdir="${src.dir}" destdir="${build.dir}" debug="on" failonerror="true" deprecation="on" target="1.7" source="1.7" includeantruntime="false">
+			<classpath refid="build.classpath" />
+		</javac>
+
+	</target>
+
+	<!-- 
+		creates the deployable WAR file 
+		even though we have a JAR target we don't depend on that target; that's
+		  mainly there to get the necessary components into the eiConsole
+	  -->
+	<target name="createWAR" depends="compile" description="Creates WAR from project code">
+
+		<tstamp />
+		<war 
+			destfile="${dist.dir}/${war.name}" 
+			webxml="../${web.dir.name}/WEB-INF/web.xml"
+			update="false"
+			duplicate="preserve">
+			
+			<classes dir="${build.dir}" />
+			<fileset dir="../${web.dir.name}">
+				<include name="**/*" />
+				<exclude name="WEB-INF/web.xml" />
+				<exclude name="WEB-INF/lib/" />
+			</fileset>
+			<lib dir="${lib.dir}"/>
+		</war>
+		
+	</target>
+</project>
