@@ -6,7 +6,8 @@
 </head>
 <body>
         
-        <div id="map" style="width:100%;height:500px;"></div>
+        <div id="map" style="width:100%;height:500px;" ></div>
+        <div id="crops" style="display:none" />
         
         <script>
             function myMap() {
@@ -62,6 +63,9 @@
 								map.setCenter(location);
 								map.setZoom(6);
 			}
+        
+        	var mapElement = document.getElementById("map");
+        	mapElement.style
         </script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQjw_wKeYj5029yDcLWLodu2r9itijINg&amp;callback=myMap"></script>
     </body>

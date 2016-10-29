@@ -2,11 +2,14 @@ package com.bu.ece.interactiveMap.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.bu.ece.interactiveMap.connections.DBUtils;
 
 public class ProcessLocationInformation extends HttpServlet {
 
@@ -20,6 +23,12 @@ public class ProcessLocationInformation extends HttpServlet {
 		
 		System.out.println("Latitude="+latitude);
 		System.out.println("Longitude="+longitude);
+		
+		try {
+			Connection connections = DBUtils.getConnection();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 		
 		//Get crop information from database
 		
