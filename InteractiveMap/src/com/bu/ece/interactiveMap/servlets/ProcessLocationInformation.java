@@ -37,6 +37,6 @@ public class ProcessLocationInformation extends HttpServlet {
 		
 		//Set crop information in the response
 		PrintWriter out = response.getWriter();
-		out.println("<h1>HelloWorld</h1>");
+		out.println("<h3>Predicted Crop = Wheat</h3>");
 	}
 }
