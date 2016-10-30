@@ -1,0 +1,114 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1235" measuredH="601" mockupW="1167" mockupH="598">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::Paragraph" x="411" y="186" w="215" h="80" measuredW="275" measuredH="80" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>SOC</text>
+      </controlProperties>
+    </control>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="68" y="3" w="1151" h="598" measuredW="450" measuredH="400" zOrder="1" locked="false" isInGroup="-1"/>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::Map" x="83" y="121" w="1135" h="313" measuredW="252" measuredH="222" zOrder="2" locked="false" isInGroup="-1"/>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::RoundButton" x="586" y="298" w="28" h="29" measuredW="32" measuredH="32" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>13576743</borderColor>
+        <color>13576743</color>
+      </controlProperties>
+    </control>
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::RedX" x="646" y="329" w="26" h="27" measuredW="240" measuredH="104" zOrder="6" locked="false" isInGroup="-1"/>
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::RoundButton" x="416" y="344" w="28" h="29" measuredW="32" measuredH="32" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>13576743</borderColor>
+        <color>13576743</color>
+      </controlProperties>
+    </control>
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::RedX" x="743" y="389" w="26" h="27" measuredW="240" measuredH="104" zOrder="3" locked="false" isInGroup="-1"/>
+    <control controlID="10" controlTypeID="com.balsamiq.mockups::RoundButton" x="524" y="244" w="152" h="137" measuredW="32" measuredH="32" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>65535</color>
+      </controlProperties>
+    </control>
+    <control controlID="12" controlTypeID="com.balsamiq.mockups::VRule" x="595" y="244" w="-1" h="77" measuredW="10" measuredH="100" zOrder="7" locked="false" isInGroup="-1"/>
+    <control controlID="13" controlTypeID="com.balsamiq.mockups::RoundButton" x="346" y="282" w="163" h="152" measuredW="32" measuredH="32" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>65535</color>
+      </controlProperties>
+    </control>
+    <control controlID="14" controlTypeID="com.balsamiq.mockups::VRule" x="425" y="282" w="-1" h="77" measuredW="10" measuredH="100" zOrder="10" locked="false" isInGroup="-1"/>
+    <control controlID="15" controlTypeID="com.balsamiq.mockups::Title" x="537" y="78" w="-1" h="-1" measuredW="191" measuredH="43" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>World%20Map</text>
+      </controlProperties>
+    </control>
+    <control controlID="16" controlTypeID="com.balsamiq.mockups::Label" x="351" y="252" w="-1" h="-1" measuredW="108" measuredH="21" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Existing%20Smaple%202</text>
+      </controlProperties>
+    </control>
+    <control controlID="17" controlTypeID="com.balsamiq.mockups::Label" x="574" y="216" w="-1" h="-1" measuredW="105" measuredH="21" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Existing%20Smaple%201</text>
+      </controlProperties>
+    </control>
+    <control controlID="18" controlTypeID="com.balsamiq.mockups::Label" x="701" y="360" w="-1" h="-1" measuredW="111" measuredH="21" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Selected%20location%201</text>
+      </controlProperties>
+    </control>
+    <control controlID="19" controlTypeID="com.balsamiq.mockups::Label" x="648" y="303" w="-1" h="-1" measuredW="114" measuredH="21" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Selected%20location%202</text>
+      </controlProperties>
+    </control>
+    <control controlID="20" controlTypeID="com.balsamiq.mockups::VerticalScrollBar" x="1219" y="99" w="-1" h="486" measuredW="16" measuredH="100" zOrder="16" locked="false" isInGroup="-1"/>
+    <control controlID="23" controlTypeID="com.balsamiq.mockups::List" x="756" y="433" w="313" h="138" measuredW="100" measuredH="126" zOrder="21" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Ca%3A0.4562378412%0APH%3A7.2%0ASoc%28Soil%20Organic%20Carbon%29%3A0.321684781%0AP%3A0.1234123214%0ASand%3A0.657347129</text>
+      </controlProperties>
+    </control>
+    <control controlID="24" controlTypeID="com.balsamiq.mockups::List" x="1031" y="433" w="182" h="139" measuredW="100" measuredH="126" zOrder="27" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Acuracy%3A80%25%0Afertilizers%3ASta-Green%0A%09%20%20%20Hyponex</text>
+      </controlProperties>
+    </control>
+    <control controlID="26" controlTypeID="com.balsamiq.mockups::Link" x="841" y="510" w="-1" h="-1" measuredW="77" measuredH="19" zOrder="17" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Best%20Dealers</text>
+      </controlProperties>
+    </control>
+    <control controlID="27" controlTypeID="com.balsamiq.mockups::Label" x="646" y="149" w="-1" h="-1" measuredW="115" measuredH="21" zOrder="18" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Recomanded%20crops</text>
+      </controlProperties>
+    </control>
+    <control controlID="29" controlTypeID="com.balsamiq.mockups::Button" x="1124" y="78" w="-1" h="-1" measuredW="95" measuredH="27" zOrder="19" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Upload%20Data</text>
+      </controlProperties>
+    </control>
+    <control controlID="30" controlTypeID="com.balsamiq.mockups::Canvas" x="84" y="434" w="1135" h="137" measuredW="100" measuredH="70" zOrder="20" locked="false" isInGroup="-1"/>
+    <control controlID="31" controlTypeID="com.balsamiq.mockups::Image" x="89" y="438" w="128" h="129" measuredW="77" measuredH="79" zOrder="22" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>./corn.jpg</src>
+      </controlProperties>
+    </control>
+    <control controlID="32" controlTypeID="com.balsamiq.mockups::Image" x="217" y="440" w="134" h="125" measuredW="77" measuredH="79" zOrder="23" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>./golden-rice.jpg</src>
+      </controlProperties>
+    </control>
+    <control controlID="33" controlTypeID="com.balsamiq.mockups::Image" x="353" y="438" w="136" h="129" measuredW="77" measuredH="79" zOrder="24" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>./wheat-863392_960_720.jpg</src>
+      </controlProperties>
+    </control>
+    <control controlID="34" controlTypeID="com.balsamiq.mockups::Image" x="489" y="438" w="137" h="129" measuredW="77" measuredH="79" zOrder="25" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>./Soybeans_Landing_image-update.jpg</src>
+      </controlProperties>
+    </control>
+    <control controlID="35" controlTypeID="com.balsamiq.mockups::Image" x="626" y="436" w="130" h="133" measuredW="77" measuredH="79" zOrder="26" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>./1280px-Barley_%28Hordeum_vulgare%29_-_United_States_National_Arboretum_-_24_May_2009.jpg</src>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
