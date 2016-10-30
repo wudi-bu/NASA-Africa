@@ -37,6 +37,18 @@ public class ProcessLocationInformation extends HttpServlet {
 		
 		//Set crop information in the response
 		PrintWriter out = response.getWriter();
-		out.println("<h3>Predicted Crop = Wheat</h3>");
+		
+		double latitudeAsDouble = 0;
+		try {
+			latitudeAsDouble = Double.parseDouble(latitude);
+		} catch(NumberFormatException e) {
+			e.printStackTrace();
+		}
+		
+		if(latitudeAsDouble > 14) {
+			out.println("<h3>Predicted Crop = None</h3>");
+		} else {
+			out.println("<h3>Predicted Crop = Wheat</h3>");
+		}
 	}
 }
