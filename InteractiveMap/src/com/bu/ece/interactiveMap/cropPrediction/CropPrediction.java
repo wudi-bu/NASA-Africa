@@ -44,14 +44,14 @@ public class CropPrediction {
 					count ++;
 				}
 				PredictionResultBean predictionResultBean = new PredictionResultBean();
-				predictionResultBean.CropName = CropProperty.get(i).getCropName();
+				predictionResultBean.setCropName(CropProperty.get(i).getCropName());
 				// If the count >3 ,then this Crop is cultivable with certain fertilizer
 				if(count>=3){
-					predictionResultBean.Is_Caltivatible = true;
-					predictionResultBean.Accuracy = 0.5+0.2*(count-3);
+					predictionResultBean.setIs_Cultivatible(true);
+					predictionResultBean.setAccuracy(0.5+0.2*(count-3));
 					}
 				else {
-					predictionResultBean.Is_Caltivatible = false;
+					predictionResultBean.setIs_Cultivatible(false);
 				}
 				PredictionResult.add(predictionResultBean);
 				}	
@@ -80,14 +80,14 @@ public class CropPrediction {
 					count ++;
 				}
 				PredictionResultBean predictionResultBean = new PredictionResultBean();
-				predictionResultBean.CropName = CropProperty.get(i).getCropName();
+				predictionResultBean.setCropName(CropProperty.get(i).getCropName());
 				// If the count >3 ,then this Crop is cultivable with certain fertilizer
 				if(count>=3){
-					predictionResultBean.Is_Caltivatible = true;
-					predictionResultBean.Accuracy = 0.5+0.2*(count-3);
+					predictionResultBean.setIs_Cultivatible(true);
+					predictionResultBean.setAccuracy(0.5+0.2*(count-3));
 					}
 				else {
-					predictionResultBean.Is_Caltivatible = false;
+					predictionResultBean.setIs_Cultivatible(false);
 				}
 				PredictionResult.add(predictionResultBean);
 				}				
