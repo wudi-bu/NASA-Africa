@@ -9,7 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.simple.JSONObject;
+
 import com.bu.ece.interactiveMap.connections.DBUtils;
+import com.bu.ece.interactiveMap.soilgrid.SoilGridIntegration;
 
 public class ProcessLocationInformation extends HttpServlet {
 
@@ -24,6 +27,23 @@ public class ProcessLocationInformation extends HttpServlet {
 		System.out.println("Latitude="+latitude);
 		System.out.println("Longitude="+longitude);
 		
+		JSONObject jsonObject = SoilGridIntegration.getSoilProperties(latitude, longitude);
+		JSONObject properties = (JSONObject)jsonObject.get("properties");
+		
+		
+		String sand = ((JSONObject)((JSONObject)properties.get("SNDPPT")).get("M")).get("sl1").toString();
+		String pH = ((JSONObject)((JSONObject)properties.get("PHIHOX")).get("M")).get("sl1").toString();
+		String aluminum = ((JSONObject)((JSONObject)properties.get("ALUM3S")).get("M")).get("xd1").toString();
+		String calcium = ((JSONObject)((JSONObject)properties.get("ECAX")).get("M")).get("xd1").toString();
+		String magnesium = ((JSONObject)((JSONObject)properties.get("EMGX")).get("M")).get("xd1").toString();
+		String soc = ((JSONObject)((JSONObject)properties.get("ORCDRC")).get("M")).get("sl1").toString();
+		
+		System.out.println("sand="+sand);
+		System.out.println("pH="+pH);
+		System.out.println("aluminum="+aluminum);
+		System.out.println("calcium="+calcium);
+		System.out.println("magnesium="+magnesium);
+		System.out.println("soc="+soc);
 		try {
 			Connection connections = DBUtils.getConnection();
 		} catch (ClassNotFoundException e) {
