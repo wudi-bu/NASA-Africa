@@ -3,6 +3,7 @@ package com.bu.ece.interactiveMap.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -12,7 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONObject;
 
 import com.bu.ece.interactiveMap.connections.DBUtils;
+import com.bu.ece.interactiveMap.cropPrediction.CropPrediction;
+import com.bu.ece.interactiveMap.cropPrediction.PredictionResultBean;
+import com.bu.ece.interactiveMap.cropPrediction.SoilPropertyBean;
 import com.bu.ece.interactiveMap.soilgrid.SoilGridIntegration;
+import com.bu.ece.interactiveMap.utils.ESoilUtils;
 
 public class ProcessLocationInformation extends HttpServlet {
 
@@ -30,7 +35,6 @@ public class ProcessLocationInformation extends HttpServlet {
 		JSONObject jsonObject = SoilGridIntegration.getSoilProperties(latitude, longitude);
 		JSONObject properties = (JSONObject)jsonObject.get("properties");
 		
-		
 		String sand = ((JSONObject)((JSONObject)properties.get("SNDPPT")).get("M")).get("sl1").toString();
 		String pH = ((JSONObject)((JSONObject)properties.get("PHIHOX")).get("M")).get("sl1").toString();
 		String aluminum = ((JSONObject)((JSONObject)properties.get("ALUM3S")).get("M")).get("xd1").toString();
@@ -38,19 +42,29 @@ public class ProcessLocationInformation extends HttpServlet {
 		String magnesium = ((JSONObject)((JSONObject)properties.get("EMGX")).get("M")).get("xd1").toString();
 		String soc = ((JSONObject)((JSONObject)properties.get("ORCDRC")).get("M")).get("sl1").toString();
 		
-		System.out.println("sand="+sand);
-		System.out.println("pH="+pH);
-		System.out.println("aluminum="+aluminum);
-		System.out.println("calcium="+calcium);
-		System.out.println("magnesium="+magnesium);
-		System.out.println("soc="+soc);
+		SoilPropertyBean soilPropertyBean = new SoilPropertyBean();
+		soilPropertyBean.setAl(ESoilUtils.convertStringToDouble(aluminum, 0));
+		soilPropertyBean.setCa(ESoilUtils.convertStringToDouble(calcium, 0));
+		soilPropertyBean.setMg(ESoilUtils.convertStringToDouble(magnesium, 0));
+		soilPropertyBean.setPH(ESoilUtils.convertStringToDouble(pH, 0));
+		soilPropertyBean.setSand(ESoilUtils.convertStringToDouble(sand, 0));
+		soilPropertyBean.setSOC(ESoilUtils.convertStringToDouble(soc, 0));
+		
+		CropPrediction cropPrediction = new CropPrediction(soilPropertyBean);
+		ArrayList<PredictionResultBean> predictionResults = cropPrediction.Predict();
+		if(predictionResults != null) {
+			for(PredictionResultBean prediction : predictionResults) {
+				System.out.println(prediction.CropName);
+			}
+		}
+		
+		/*
 		try {
 			Connection connections = DBUtils.getConnection();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		
-		//Get crop information from database
+		*/
 		
 		//Set response content type
 		response.setContentType("text/html");

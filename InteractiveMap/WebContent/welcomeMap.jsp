@@ -14,7 +14,16 @@
             function myMap() {
                 var mapCanvas = document.getElementById("map");
                 var myCenter=new google.maps.LatLng(0,19);
-                var mapOptions = {center: myCenter, zoom: 3};
+                var mapOptions = {center: myCenter, 
+                					zoom: 3,
+                					panControl: false,
+                				    zoomControl: true,
+                				    mapTypeControl: false,
+                				    scaleControl: false,
+                				    streetViewControl: false,
+                				    overviewMapControl: false,
+                				    rotateControl: false
+                };
                 var map = new google.maps.Map(mapCanvas, mapOptions);
                 google.maps.event.addListener(map, 'click', function(event) {
                                               placeMarker(map, event.latLng);
