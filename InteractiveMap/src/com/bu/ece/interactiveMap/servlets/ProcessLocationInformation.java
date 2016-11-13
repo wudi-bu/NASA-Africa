@@ -2,7 +2,6 @@ package com.bu.ece.interactiveMap.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -12,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONObject;
 
-import com.bu.ece.interactiveMap.connections.DBUtils;
 import com.bu.ece.interactiveMap.cropPrediction.CropPrediction;
 import com.bu.ece.interactiveMap.cropPrediction.PredictionResultBean;
 import com.bu.ece.interactiveMap.cropPrediction.SoilPropertyBean;
@@ -26,63 +24,76 @@ public class ProcessLocationInformation extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
+		//Set response content type
+		response.setContentType("text/html");
+		
 		String latitude = request.getParameter("latitude");
 		String longitude = request.getParameter("longitude");
-		
-		System.out.println("Latitude="+latitude);
-		System.out.println("Longitude="+longitude);
 		
 		JSONObject jsonObject = SoilGridIntegration.getSoilProperties(latitude, longitude);
 		JSONObject properties = (JSONObject)jsonObject.get("properties");
 		
-		String sand = ((JSONObject)((JSONObject)properties.get("SNDPPT")).get("M")).get("sl1").toString();
-		String pH = ((JSONObject)((JSONObject)properties.get("PHIHOX")).get("M")).get("sl1").toString();
-		String aluminum = ((JSONObject)((JSONObject)properties.get("ALUM3S")).get("M")).get("xd1").toString();
-		String calcium = ((JSONObject)((JSONObject)properties.get("ECAX")).get("M")).get("xd1").toString();
-		String magnesium = ((JSONObject)((JSONObject)properties.get("EMGX")).get("M")).get("xd1").toString();
-		String soc = ((JSONObject)((JSONObject)properties.get("ORCDRC")).get("M")).get("sl1").toString();
+		Object sand = null;
+		Object pH = null;
+		Object aluminum = null;
+		Object calcium = null;
+		Object magnesium = null;
+		Object soc = null;
+		
+		if (properties.get("SNDPPT") != null) {
+			sand = ((JSONObject)((JSONObject)properties.get("SNDPPT")).get("M")).get("sl1");
+		}
+		
+		if (properties.get("PHIHOX") != null) {
+			pH = ((JSONObject)((JSONObject)properties.get("PHIHOX")).get("M")).get("sl1");
+		}
+		
+		if (properties.get("ALUM3S") != null) {
+			aluminum = ((JSONObject)((JSONObject)properties.get("ALUM3S")).get("M")).get("xd1");
+		}
+		
+		if (properties.get("ECAX") != null) {
+			calcium = ((JSONObject)((JSONObject)properties.get("ECAX")).get("M")).get("xd1");
+		}
+		
+		if(properties.get("EMGX") != null) {
+			magnesium = ((JSONObject)((JSONObject)properties.get("EMGX")).get("M")).get("xd1");
+		}
+		
+		if(properties.get("ORCDRC") != null) {
+			soc = ((JSONObject)((JSONObject)properties.get("ORCDRC")).get("M")).get("sl1");
+		}
 		
 		SoilPropertyBean soilPropertyBean = new SoilPropertyBean();
-		soilPropertyBean.setAl(ESoilUtils.convertStringToDouble(aluminum, 0));
-		soilPropertyBean.setCa(ESoilUtils.convertStringToDouble(calcium, 0));
-		soilPropertyBean.setMg(ESoilUtils.convertStringToDouble(magnesium, 0));
-		soilPropertyBean.setPH(ESoilUtils.convertStringToDouble(pH, 0));
-		soilPropertyBean.setSand(ESoilUtils.convertStringToDouble(sand, 0));
-		soilPropertyBean.setSOC(ESoilUtils.convertStringToDouble(soc, 0));
+		soilPropertyBean.setAl(ESoilUtils.convertStringToDouble((aluminum == null)?"":aluminum.toString(), 0));
+		soilPropertyBean.setCa(ESoilUtils.convertStringToDouble((calcium == null)?"":calcium.toString(), 0));
+		soilPropertyBean.setMg(ESoilUtils.convertStringToDouble((magnesium == null)?"":magnesium.toString(), 0));
+		soilPropertyBean.setPH(ESoilUtils.convertStringToDouble((pH == null)?"":pH.toString(), 0));
+		soilPropertyBean.setSand(ESoilUtils.convertStringToDouble((sand == null)?"":sand.toString(), 0));
+		soilPropertyBean.setSOC(ESoilUtils.convertStringToDouble((soc == null)?"":soc.toString(), 0));
 		
 		CropPrediction cropPrediction = new CropPrediction(soilPropertyBean);
 		ArrayList<PredictionResultBean> predictionResults = cropPrediction.Predict();
-		if(predictionResults != null) {
-			for(PredictionResultBean prediction : predictionResults) {
-				System.out.println(prediction.CropName);
-			}
-		}
-		
-		/*
-		try {
-			Connection connections = DBUtils.getConnection();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-		*/
-		
-		//Set response content type
-		response.setContentType("text/html");
+		boolean cropsPredicted = false;
 		
 		//Set crop information in the response
 		PrintWriter out = response.getWriter();
 		
-		double latitudeAsDouble = 0;
-		try {
-			latitudeAsDouble = Double.parseDouble(latitude);
-		} catch(NumberFormatException e) {
-			e.printStackTrace();
+		if(predictionResults != null) {
+			for(PredictionResultBean prediction : predictionResults) {
+				if(prediction != null) {
+					if(prediction.getIs_Cultivatible()) {
+						cropsPredicted = true;
+						System.out.println("Crop="+prediction.getCropName()+", Accuracy="+prediction.getAccuracy());
+						out.println("<h4>Crop="+prediction.getCropName()+", Accuracy="+prediction.getAccuracy()+"</h4>");
+					}
+				}
+			}
 		}
 		
-		if(latitudeAsDouble > 14) {
-			out.println("<h3>Predicted Crop = None</h3>");
-		} else {
-			out.println("<h3>Predicted Crop = Wheat</h3>");
+		if(!cropsPredicted) {
+			System.out.println("No crops predicted");
+			out.println("<h4>No crops predicted</h4>");
 		}
 	}
 }
