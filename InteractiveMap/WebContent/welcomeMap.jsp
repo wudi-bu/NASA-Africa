@@ -62,10 +62,11 @@
 		
 		<div id="screen" style="width:100%;height:100%; z-index: 99;">
 	        <div id="map" style="width:100%;height:500px;" class="solid"></div>
-	        <div id="crops" style="width:100%;" ></div>
+	        <!-- <div id="crops" style="width:100%;" ></div> -->
 	        
 	        <script>
 	        	var markers = [];
+	        	var prev_infowindow = false;
 	            function myMap() {
 	            	var screenElement = document.getElementById("screen");
 	            	if(!(screenElement.style.opacity == "0.40" 
@@ -122,13 +123,18 @@
 		             	{
 		                 	if (xmlhttp.readyState==4 && xmlhttp.status==200)
 		                 	{
-		                     	//var infowindow = new google.maps.InfoWindow({
-		         				//	content: 'Latitude: ' + location.lat() + '<br>Longitude: ' + location.lng() + '<br>Message: ' +  xmlhttp.responseText
-		         				//	});
-		         				//infowindow.open(map,marker);
+								if( prev_infowindow ) {
+									prev_infowindow.close();
+								}
+		                 		
+		                     	var infowindow = new google.maps.InfoWindow({
+		         					content: xmlhttp.responseText
+		         					});
+		                     	prev_infowindow = infowindow;
+		         				infowindow.open(map,marker);
 		         				
-		         				var cropElement = document.getElementById("crops");
-		                		cropElement.innerHTML = 'Latitude: ' + location.lat() + '<br/>Longitude: ' + location.lng() + '<br/>' +  xmlhttp.responseText;
+		         				//var cropElement = document.getElementById("crops");
+		                		//cropElement.innerHTML = 'Latitude: ' + location.lat() + '<br/>Longitude: ' + location.lng() + '<br/>' +  xmlhttp.responseText;
 		                		
 		    	             	screenElement.style.opacity = "1.0";
 		    	             	screenElement.style.filter = "alpha(opacity=100)";
