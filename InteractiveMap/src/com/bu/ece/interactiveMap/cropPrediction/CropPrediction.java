@@ -48,7 +48,7 @@ public class CropPrediction {
 				// If the count >3 ,then this Crop is cultivable with certain fertilizer
 				if(count>=3){
 					predictionResultBean.setIs_Cultivatible(true);
-					predictionResultBean.setAccuracy(0.5+0.2*(count-3));
+					predictionResultBean.setAccuracy(0.5+0.15*(count-3));
 					}
 				else {
 					predictionResultBean.setIs_Cultivatible(false);
@@ -84,7 +84,7 @@ public class CropPrediction {
 				// If the count >3 ,then this Crop is cultivable with certain fertilizer
 				if(count>=3){
 					predictionResultBean.setIs_Cultivatible(true);
-					predictionResultBean.setAccuracy(0.5+0.2*(count-3));
+					predictionResultBean.setAccuracy(0.5+0.15*(count-3));
 					}
 				else {
 					predictionResultBean.setIs_Cultivatible(false);
