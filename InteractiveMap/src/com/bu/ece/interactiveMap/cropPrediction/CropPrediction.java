@@ -15,10 +15,11 @@ public class CropPrediction {
 		}
 	public ArrayList<PredictionResultBean> Predict(){
 		//count for how many properties of the soil property lies within the range
-		int count = 0;
+		
 		if(this.soilpropertybean.DataSource == "REST"){
 			//loop for 5 Crop properties
 			for(int i = 0;i<5;i++){	
+				int count = 0;
 				// check for Ca 
 				if(this.soilpropertybean.getCa()>CropProperty.get(i).getCa_min()&&this.soilpropertybean.getCa()<CropProperty.get(i).getCa_max()){
 					count ++;
@@ -59,6 +60,7 @@ public class CropPrediction {
 		}
 		else{
 			for(int i = 0;i<5;i++){	
+				int count = 0;
 				// check for Ca 
 				if(this.soilpropertybean.getCa()>CropProperty.get(i).getCa_min()&&this.soilpropertybean.getCa()<CropProperty.get(i).getCa_max()){
 					count ++;
