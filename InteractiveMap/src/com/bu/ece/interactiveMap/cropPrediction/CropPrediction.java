@@ -46,7 +46,6 @@ public class CropPrediction {
 				}
 				PredictionResultBean predictionResultBean = new PredictionResultBean();
 				predictionResultBean.setCropName(CropProperty.get(i).getCropName());
-				System.out.println("Count="+count);
 				// If the count >3 ,then this Crop is cultivable with certain fertilizer
 				if(count>=3){
 					predictionResultBean.setIs_Cultivatible(true);
