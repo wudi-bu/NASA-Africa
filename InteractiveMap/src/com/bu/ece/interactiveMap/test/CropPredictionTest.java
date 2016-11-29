@@ -148,14 +148,14 @@ public class CropPredictionTest implements junit.framework.Test {
 	@Test
 	public void testInZimbabwe() {
 		
-		ArrayList<PredictionResultBean> zimbabweResults = cropPredictionHelper.predictCrops("-19.47", "30.06");
+		ArrayList<PredictionResultBean> zimbabweResults = cropPredictionHelper.predictCrops("-20.0559313", "29.597168");
 		assertTrue(isCultivatable(zimbabweResults));
 		if(zimbabweResults != null) {
 			for(PredictionResultBean prediction : zimbabweResults) {
 				if(prediction != null) {
-					if("Rice".equals(prediction.getCropName())) {
+					if("Soybean".equals(prediction.getCropName())) {
 						assertEquals(String.valueOf(prediction.getAccuracy()), "0.5");
-					} else if("Soybean".equals(prediction.getCropName())) {
+					} else if("Wheat".equals(prediction.getCropName())) {
 						assertEquals(String.valueOf(prediction.getAccuracy()), "0.9");
 					}
 				}
@@ -166,15 +166,15 @@ public class CropPredictionTest implements junit.framework.Test {
 	@Test
 	public void testInBrazil() {
 		
-		ArrayList<PredictionResultBean> brazilResults = cropPredictionHelper.predictCrops("-16.80", "42.01");
+		ArrayList<PredictionResultBean> brazilResults = cropPredictionHelper.predictCrops("-19.186029192399946", "-39.87007141113281");
 		assertTrue(isCultivatable(brazilResults));
 		if(brazilResults != null) {
 			for(PredictionResultBean prediction : brazilResults) {
 				if(prediction != null) {
-					if("Corn".equals(prediction.getCropName())) {
-						assertEquals(String.valueOf(prediction.getAccuracy()), "0.7");
-					} else if("Rice".equals(prediction.getCropName())) {
-						assertEquals(String.valueOf(prediction.getAccuracy()), "0.9");
+					if("Soybean".equals(prediction.getCropName())) {
+						assertEquals(String.valueOf(prediction.getAccuracy()), "0.5");
+					} else if("Wheat".equals(prediction.getCropName())) {
+						assertEquals(String.valueOf(prediction.getAccuracy()), "0.5");
 					}
 				}
 			}
@@ -184,15 +184,13 @@ public class CropPredictionTest implements junit.framework.Test {
 	@Test
 	public void testInUS() {
 		
-		ArrayList<PredictionResultBean> usResults = cropPredictionHelper.predictCrops("31.05", "-89.47");
+		ArrayList<PredictionResultBean> usResults = cropPredictionHelper.predictCrops("31.774877", "-90.911865");
 		assertTrue(isCultivatable(usResults));
 		if(usResults != null) {
 			for(PredictionResultBean prediction : usResults) {
 				if(prediction != null) {
-					if("Soybean".equals(prediction.getCropName())) {
+					if("Wheat".equals(prediction.getCropName())) {
 						assertEquals(String.valueOf(prediction.getAccuracy()), "0.5");
-					} else if("Wheat".equals(prediction.getCropName())) {
-						assertEquals(String.valueOf(prediction.getAccuracy()), "0.7");
 					}
 				}
 			}
