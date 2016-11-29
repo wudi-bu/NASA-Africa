@@ -16,7 +16,7 @@ public class CropPrediction {
 	public ArrayList<PredictionResultBean> Predict(){
 		//count for how many properties of the soil property lies within the range
 		
-		if(this.soilpropertybean.DataSource == "REST"){
+		if("REST".equals(this.soilpropertybean.DataSource)){
 			//loop for 5 Crop properties
 			for(int i = 0;i<5;i++){	
 				int count = 0;
@@ -46,6 +46,7 @@ public class CropPrediction {
 				}
 				PredictionResultBean predictionResultBean = new PredictionResultBean();
 				predictionResultBean.setCropName(CropProperty.get(i).getCropName());
+				System.out.println("Count="+count);
 				// If the count >3 ,then this Crop is cultivable with certain fertilizer
 				if(count>=3){
 					predictionResultBean.setIs_Cultivatible(true);

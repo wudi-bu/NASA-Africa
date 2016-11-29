@@ -52,6 +52,7 @@ public class CropPredictionHelper {
 		soilPropertyBean.setPH(ESoilUtils.convertStringToDouble((pH == null)?"":pH.toString(), 0));
 		soilPropertyBean.setSand(ESoilUtils.convertStringToDouble((sand == null)?"":sand.toString(), 0));
 		soilPropertyBean.setSOC(ESoilUtils.convertStringToDouble((soc == null)?"":soc.toString(), 0));
+		soilPropertyBean.DataSource = ((magnesium == null)?"":"REST");
 		
 		CropPrediction cropPrediction = new CropPrediction(soilPropertyBean);
 		return cropPrediction.Predict();
