@@ -15,86 +15,56 @@ public class CropPrediction {
 		}
 	public ArrayList<PredictionResultBean> Predict(){
 		//count for how many properties of the soil property lies within the range
-		
-		if("REST".equals(this.soilpropertybean.DataSource)){
 			//loop for 5 Crop properties
 			for(int i = 0;i<5;i++){	
 				int count = 0;
+				PredictionResultBean predictionResultBean = new PredictionResultBean();
 				// check for Ca 
 				if(this.soilpropertybean.getCa()>CropProperty.get(i).getCa_min()&&this.soilpropertybean.getCa()<CropProperty.get(i).getCa_max()){
 					count ++;
+					predictionResultBean.setIs_Ca_OK(true);
 				}
 				// check for PH
 				if(this.soilpropertybean.getPH()>CropProperty.get(i).getPH_min()&&this.soilpropertybean.getPH()<CropProperty.get(i).getPH_max()){
 					count ++;
+					predictionResultBean.setIs_PH_OK(true);
 				}
 				// check for Sand
 				if(this.soilpropertybean.getSand()>CropProperty.get(i).getSand_min()&&this.soilpropertybean.getSand()<CropProperty.get(i).getSand_max()){
 					count ++;
+					predictionResultBean.setIs_Sand_OK(true);
 				}
 				// check for Soc
 				if(this.soilpropertybean.getSOC()>CropProperty.get(i).getSOC_min()&&this.soilpropertybean.getSOC()<CropProperty.get(i).getSOC_max()){
 					count ++;
+					predictionResultBean.setIs_SOC_OK(true);
 				}
 				// check for Al
 				if(this.soilpropertybean.getAl()>CropProperty.get(i).getAl_min()&&this.soilpropertybean.getAl()<CropProperty.get(i).getAl_max()){
 					count ++;
+					predictionResultBean.setIs_Al_OK(true);
 				}
 				// check for Mg
 				if(this.soilpropertybean.getMg()>CropProperty.get(i).getMg_min()&&this.soilpropertybean.getMg()<CropProperty.get(i).getMg_max()){
 					count ++;
+					predictionResultBean.setIs_Mg_OK(true);
 				}
-				PredictionResultBean predictionResultBean = new PredictionResultBean();
 				predictionResultBean.setCropName(CropProperty.get(i).getCropName());
-				// If the count >3 ,then this Crop is cultivable with certain fertilizer
+				// If the count >=3 ,then this Crop is cultivable with certain fertilizer
 				if(count>=3){
 					predictionResultBean.setIs_Cultivatible(true);
 					predictionResultBean.setAccuracy(0.5+0.15*(count-3));
 					}
+				else if(count==2){
+					predictionResultBean.setIs_Cultivatible(true);
+					predictionResultBean.setAccuracy(0.3);
+				}
 				else {
 					predictionResultBean.setIs_Cultivatible(false);
 				}
 				PredictionResult.add(predictionResultBean);
 				}	
-			
-		}
-		else{
-			for(int i = 0;i<5;i++){	
-				int count = 0;
-				// check for Ca 
-				if(this.soilpropertybean.getCa()>CropProperty.get(i).getCa_min()&&this.soilpropertybean.getCa()<CropProperty.get(i).getCa_max()){
-					count ++;
-				}
-				// check for PH
-				if(this.soilpropertybean.getPH()>CropProperty.get(i).getPH_min()&&this.soilpropertybean.getPH()<CropProperty.get(i).getPH_max()){
-					count ++;
-				}
-				// check for Sand
-				if(this.soilpropertybean.getSand()>CropProperty.get(i).getSand_min()&&this.soilpropertybean.getSand()<CropProperty.get(i).getSand_max()){
-					count ++;
-				}
-				// check for Soc
-				if(this.soilpropertybean.getSOC()>CropProperty.get(i).getSOC_min()&&this.soilpropertybean.getSOC()<CropProperty.get(i).getSOC_max()){
-					count ++;
-				}
-				// check for P
-				if(this.soilpropertybean.getP()>CropProperty.get(i).getP_min()&&this.soilpropertybean.getP()<CropProperty.get(i).getP_max()){
-					count ++;
-				}
-				PredictionResultBean predictionResultBean = new PredictionResultBean();
-				predictionResultBean.setCropName(CropProperty.get(i).getCropName());
-				// If the count >3 ,then this Crop is cultivable with certain fertilizer
-				if(count>=3){
-					predictionResultBean.setIs_Cultivatible(true);
-					predictionResultBean.setAccuracy(0.5+0.15*(count-3));
-					}
-				else {
-					predictionResultBean.setIs_Cultivatible(false);
-				}
-				PredictionResult.add(predictionResultBean);
-				}				
-		}
-				return PredictionResult;		
+			return PredictionResult;		
 	}
 
 }
