@@ -6,7 +6,6 @@ public class SoilPropertyBean implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	public String DataSource = "";
 	private double Ca = 0;
 	private double P = 0;
 	private double PH = 0;
