@@ -164,6 +164,40 @@
 		             	*/
 						}		
 					}
+	        	
+        		function submitForm() {
+        			document.getElementById('id01').style.display='block';
+        			var cropResultsElement = document.getElementById("cropsResults");
+        			var calcium = document.getElementById("calcium").value;
+        			var soc = document.getElementById("soc").value;
+        			var phosphorus = document.getElementById("phosphorus").value;
+        			var aluminium = document.getElementById("aluminium").value;
+        			var sand = document.getElementById("sand").value;
+        			var magnesium = document.getElementById("magnesium").value;
+        			var pH = document.getElementById("pH").value;
+        			
+        			var xmlhttp;
+	             	var url="/InteractiveMap/ProcessSoilInformation?calcium="+calcium+"&soc="+soc+"&phosphorus="+phosphorus+"&aluminium="+aluminium+"&sand="+sand+"&magnesium="+magnesium+"&pH="+pH;
+	             	if (window.XMLHttpRequest)
+	             	{
+	                 	xmlhttp=new XMLHttpRequest();
+	             	}
+	             	else
+	             	{
+	                 	xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	             	}
+	             	xmlhttp.onreadystatechange=function()
+	             	{
+	                 	if (xmlhttp.readyState==4 && xmlhttp.status==200)
+	                 	{
+	                 		cropResultsElement.innerHTML = xmlhttp.responseText;
+	                 	}
+	             	}
+	             	
+	             	cropResultsElement.innerHTML = "";
+	             	xmlhttp.open("POST", url, true);
+	             	xmlhttp.send();
+        		}
 	        
 	        		
 	        </script>
@@ -182,14 +216,22 @@
 		        		<h2>Enter or upload property data</h2>
 		      		</header>
 		      		<div class="w3-container">
-		        		<form action="demo_form.asp">
-							<pre style="font-size:18px", "Lucida Sans Unicode", "Lucida Grande", sans-serif><b> Do you have soil data for your location?
-		 						Upload your file to get crop details for your data. </b> 
-							</pre>
-							<p style="font-size:15px">
-							<input type="file"><input type="submit"> <br><br> OR <br><br> <b> <i>Enter values manually </b></i></p> 
-		 				</form>
-						<form action="demo_form.asp">
+		        		<div>
+							<p style="font-size:12px", "Lucida Sans Unicode", "Lucida Grande", sans-serif>
+								<b>Upload your file to get crop details for your data.</b> 
+							</p>
+							<p style="font-size:12px">
+								<input type="file" />
+								<input type="submit" />
+								<br/>
+								<br/>
+								OR
+								<br/>
+								<br/>
+								<b><i>Enter values manually</b></i>
+							</p> 
+		 				</div>
+						<div>
 							<table>
 								<tr>
 									<th>Property Name</th>
@@ -197,41 +239,42 @@
 								</tr>
 								<tr>
 									<td>Calcium</td>
-									<td><input type="number" name="quantity"></td>
+									<td><input id="calcium" type="number" name="quantity"></td>
 								</tr>
 								<tr>
 									<td>Soil Organic Carbon</td>
-									<td><input type="number" name="quantity"></td>
+									<td><input id="soc" type="number" name="quantity"></td>
 								</tr>
 								<tr>
 									<td>Phosphorus</td>
-									<td><input type="number" name="quantity"></td>
+									<td><input id="phosphorus" type="number" name="quantity"></td>
 								</tr>
 								<tr>
 									<td>Aluminium</td>
-									<td><input type="number" name="quantity"></td>
+									<td><input id="aluminium" type="number" name="quantity"></td>
 								</tr>
 								<tr>
 									<td>Sand Percentage</td>
-									<td><input type="number" name="quantity"></td>
+									<td><input id="sand" type="number" name="quantity"></td>
 								</tr>
 								<tr>
 									<td>Magnesium</td>
-									<td><input type="number" name="quantity"></td>
+									<td><input id="magnesium" type="number" name="quantity"></td>
 								</tr>
 								<tr>
 									<td>pH value</td>
-									<td><input type="number" name="quantity"></td>
+									<td><input id="pH" type="number" name="quantity"></td>
 								</tr>
 								<tr>
 									<td><b> Click here to submit </b> </td>
 									<td>
-										<input type="submit"> 
+										<input type="submit" onclick="submitForm()"> 
 									</td>
 								</tr>
 							</table>
-						</form>
+						</div>
 		      		</div>
+		      		<div id="cropsResults"></div>
 					<footer class="w3-container w3-teal">
 						<p>E-SOIL</p>
 		      		</footer>

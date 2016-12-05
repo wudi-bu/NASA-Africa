@@ -66,9 +66,9 @@ public class CropPredictionTest implements junit.framework.Test {
 			for(PredictionResultBean prediction : congoResults) {
 				if(prediction != null) {
 					if("Corn".equals(prediction.getCropName())) {
-						assertEquals(String.valueOf(prediction.getAccuracy()), "0.5");
+						assertEquals("0.65", String.valueOf(prediction.getAccuracy()));
 					} else if("Rice".equals(prediction.getCropName())) {
-						assertEquals(String.valueOf(prediction.getAccuracy()), "0.7");
+						assertEquals("0.5", String.valueOf(prediction.getAccuracy()));
 					}
 				}
 			}
@@ -78,13 +78,15 @@ public class CropPredictionTest implements junit.framework.Test {
 	@Test
 	public void testInSouthAfrica() {
 		
-		ArrayList<PredictionResultBean> southAfricaResults = cropPredictionHelper.predictCrops("-30.15", "24.43");
+		ArrayList<PredictionResultBean> southAfricaResults = cropPredictionHelper.predictCrops("-34.52466147177173", "20.0830078125");
 		assertTrue(isCultivatable(southAfricaResults));
 		if(southAfricaResults != null) {
 			for(PredictionResultBean prediction : southAfricaResults) {
 				if(prediction != null) {
 					if("Wheat".equals(prediction.getCropName())) {
-						assertEquals(String.valueOf(prediction.getAccuracy()), "0.5");
+						assertEquals("0.65", String.valueOf(prediction.getAccuracy()));
+					} else if("Corn".equals(prediction.getCropName())) {
+						assertEquals("0.5", String.valueOf(prediction.getAccuracy()));
 					}
 				}
 			}
@@ -94,13 +96,19 @@ public class CropPredictionTest implements junit.framework.Test {
 	@Test
 	public void testInSudan() {
 		
-		ArrayList<PredictionResultBean> sudanResults = cropPredictionHelper.predictCrops("11.52", "29.88");
+		ArrayList<PredictionResultBean> sudanResults = cropPredictionHelper.predictCrops("11.005904459659464", "28.828125");
 		assertTrue(isCultivatable(sudanResults));
 		if(sudanResults != null) {
 			for(PredictionResultBean prediction : sudanResults) {
 				if(prediction != null) {
-					if("Wheat".equals(prediction.getCropName())) {
-						assertEquals(String.valueOf(prediction.getAccuracy()), "0.5");
+					if("Soybean".equals(prediction.getCropName())) {
+						assertEquals("0.5", String.valueOf(prediction.getAccuracy()));
+					} else if("Wheat".equals(prediction.getCropName())) {
+						assertEquals("0.65", String.valueOf(prediction.getAccuracy()));
+					} else if("Barly".equals(prediction.getCropName())) {
+						assertEquals("0.5", String.valueOf(prediction.getAccuracy()));
+					} else if("Rice".equals(prediction.getCropName())) {
+						assertEquals("0.5", String.valueOf(prediction.getAccuracy()));
 					}
 				}
 			}
@@ -116,9 +124,9 @@ public class CropPredictionTest implements junit.framework.Test {
 			for(PredictionResultBean prediction : nigeriaResults) {
 				if(prediction != null) {
 					if("Corn".equals(prediction.getCropName())) {
-						assertEquals(String.valueOf(prediction.getAccuracy()), "0.5");
+						assertEquals("0.8", String.valueOf(prediction.getAccuracy()));
 					} else if("Rice".equals(prediction.getCropName())) {
-						assertEquals(String.valueOf(prediction.getAccuracy()), "0.9");
+						assertEquals("0.65", String.valueOf(prediction.getAccuracy()));
 					}
 				}
 			}
@@ -133,12 +141,8 @@ public class CropPredictionTest implements junit.framework.Test {
 		if(angolaResults != null) {
 			for(PredictionResultBean prediction : angolaResults) {
 				if(prediction != null) {
-					if("Rice".equals(prediction.getCropName())) {
-						assertEquals(String.valueOf(prediction.getAccuracy()), "0.5");
-					} else if("Soybean".equals(prediction.getCropName())) {
-						assertEquals(String.valueOf(prediction.getAccuracy()), "0.7");
-					} else if("Wheat".equals(prediction.getCropName())) {
-						assertEquals(String.valueOf(prediction.getAccuracy()), "0.9");
+					if("Corn".equals(prediction.getCropName())) {
+						assertEquals("0.5", String.valueOf(prediction.getAccuracy()));
 					}
 				}
 			}
@@ -154,9 +158,309 @@ public class CropPredictionTest implements junit.framework.Test {
 			for(PredictionResultBean prediction : zimbabweResults) {
 				if(prediction != null) {
 					if("Soybean".equals(prediction.getCropName())) {
-						assertEquals(String.valueOf(prediction.getAccuracy()), "0.5");
+						assertEquals("0.5", String.valueOf(prediction.getAccuracy()));
 					} else if("Wheat".equals(prediction.getCropName())) {
-						assertEquals(String.valueOf(prediction.getAccuracy()), "0.9");
+						assertEquals("0.65", String.valueOf(prediction.getAccuracy()));
+					}
+				}
+			}
+		}
+	}
+	
+	@Test
+	public void testInMadagascar() {
+		
+		ArrayList<PredictionResultBean> usResults = cropPredictionHelper.predictCrops("-19.445874298215937", "48.636474609375");
+		assertTrue(isCultivatable(usResults));
+		if(usResults != null) {
+			for(PredictionResultBean prediction : usResults) {
+				if(prediction != null) {
+					if("Corn".equals(prediction.getCropName())) {
+						assertEquals("0.3", String.valueOf(prediction.getAccuracy()));
+					} else if("Soybean".equals(prediction.getCropName())) {
+						assertEquals("0.5", String.valueOf(prediction.getAccuracy()));
+					} else if("Barly".equals(prediction.getCropName())) {
+						assertEquals("0.3", String.valueOf(prediction.getAccuracy()));
+					} else if("Rice".equals(prediction.getCropName())) {
+						assertEquals("0.65", String.valueOf(prediction.getAccuracy()));
+					}
+				}
+			}
+		}
+	}
+	
+	@Test
+	public void testInMozambique() {
+		
+		ArrayList<PredictionResultBean> usResults = cropPredictionHelper.predictCrops("-16.8886597873816", "38.4521484375");
+		assertTrue(isCultivatable(usResults));
+		if(usResults != null) {
+			for(PredictionResultBean prediction : usResults) {
+				if(prediction != null) {
+					if("Corn".equals(prediction.getCropName())) {
+						assertEquals("0.8", String.valueOf(prediction.getAccuracy()));
+					} else if("Wheat".equals(prediction.getCropName())) {
+						assertEquals("0.5", String.valueOf(prediction.getAccuracy()));
+					} else if("Barly".equals(prediction.getCropName())) {
+						assertEquals("0.5", String.valueOf(prediction.getAccuracy()));
+					} else if("Rice".equals(prediction.getCropName())) {
+						assertEquals("0.65", String.valueOf(prediction.getAccuracy()));
+					}
+				}
+			}
+		}
+	}
+	
+	@Test
+	public void testInZambia() {
+		
+		ArrayList<PredictionResultBean> usResults = cropPredictionHelper.predictCrops("-15.47485740268724", "30.179443359375");
+		assertTrue(isCultivatable(usResults));
+		if(usResults != null) {
+			for(PredictionResultBean prediction : usResults) {
+				if(prediction != null) {
+					if("Corn".equals(prediction.getCropName())) {
+						assertEquals("0.65", String.valueOf(prediction.getAccuracy()));
+					} else if("Wheat".equals(prediction.getCropName())) {
+						assertEquals("0.5", String.valueOf(prediction.getAccuracy()));
+					} else if("Barly".equals(prediction.getCropName())) {
+						assertEquals("0.3", String.valueOf(prediction.getAccuracy()));
+					} else if("Rice".equals(prediction.getCropName())) {
+						assertEquals("0.5", String.valueOf(prediction.getAccuracy()));
+					}
+				}
+			}
+		}
+	}
+	
+	@Test
+	public void testInNamibia() {
+		
+		ArrayList<PredictionResultBean> usResults = cropPredictionHelper.predictCrops("-27.186242185608737", "16.907958984375");
+		assertTrue(isCultivatable(usResults));
+		if(usResults != null) {
+			for(PredictionResultBean prediction : usResults) {
+				if(prediction != null) {
+					if("Corn".equals(prediction.getCropName())) {
+						assertEquals("0.3", String.valueOf(prediction.getAccuracy()));
+					} else if("Wheat".equals(prediction.getCropName())) {
+						assertEquals("0.5", String.valueOf(prediction.getAccuracy()));
+					} else if("Barly".equals(prediction.getCropName())) {
+						assertEquals("0.5", String.valueOf(prediction.getAccuracy()));
+					}
+				}
+			}
+		}
+	}
+	
+	@Test
+	public void testInTanzania() {
+		
+		ArrayList<PredictionResultBean> usResults = cropPredictionHelper.predictCrops("-8.211490323420682", "38.73779296875");
+		assertTrue(isCultivatable(usResults));
+		if(usResults != null) {
+			for(PredictionResultBean prediction : usResults) {
+				if(prediction != null) {
+					if("Corn".equals(prediction.getCropName())) {
+						assertEquals("0.5", String.valueOf(prediction.getAccuracy()));
+					} else if("Wheat".equals(prediction.getCropName())) {
+						assertEquals("0.5", String.valueOf(prediction.getAccuracy()));
+					} else if("Barly".equals(prediction.getCropName())) {
+						assertEquals("0.3", String.valueOf(prediction.getAccuracy()));
+					} else if("Rice".equals(prediction.getCropName())) {
+						assertEquals("0.3", String.valueOf(prediction.getAccuracy()));
+					} else if("Soybean".equals(prediction.getCropName())) {
+						assertEquals("0.3", String.valueOf(prediction.getAccuracy()));
+					}
+				}
+			}
+		}
+	}
+	
+	@Test
+	public void testInKenya() {
+		
+		ArrayList<PredictionResultBean> usResults = cropPredictionHelper.predictCrops("-1.889305962837306", "40.0341796875");
+		assertTrue(isCultivatable(usResults));
+		if(usResults != null) {
+			for(PredictionResultBean prediction : usResults) {
+				if(prediction != null) {
+					if("Soybean".equals(prediction.getCropName())) {
+						assertEquals("0.3", String.valueOf(prediction.getAccuracy()));
+					} else if("Wheat".equals(prediction.getCropName())) {
+						assertEquals("0.65", String.valueOf(prediction.getAccuracy()));
+					} else if("Rice".equals(prediction.getCropName())) {
+						assertEquals("0.3", String.valueOf(prediction.getAccuracy()));
+					}
+				}
+			}
+		}
+	}
+	
+	@Test
+	public void testInSomalia() {
+		
+		ArrayList<PredictionResultBean> usResults = cropPredictionHelper.predictCrops("2.986927393334876", "46.2744140625");
+		assertTrue(isCultivatable(usResults));
+		if(usResults != null) {
+			for(PredictionResultBean prediction : usResults) {
+				if(prediction != null) {
+					if("Soybean".equals(prediction.getCropName())) {
+						assertEquals("0.3", String.valueOf(prediction.getAccuracy()));
+					} else if("Wheat".equals(prediction.getCropName())) {
+						assertEquals("0.5", String.valueOf(prediction.getAccuracy()));
+					} else if("Barly".equals(prediction.getCropName())) {
+						assertEquals("0.3", String.valueOf(prediction.getAccuracy()));
+					} else if("Corn".equals(prediction.getCropName())) {
+						assertEquals("0.3", String.valueOf(prediction.getAccuracy()));
+					}
+				}
+			}
+		}
+	}
+	
+	@Test
+	public void testInCameroon() {
+		
+		ArrayList<PredictionResultBean> usResults = cropPredictionHelper.predictCrops("3.162455530237848", "10.986328125");
+		assertTrue(isCultivatable(usResults));
+		if(usResults != null) {
+			for(PredictionResultBean prediction : usResults) {
+				if(prediction != null) {
+					if("Soybean".equals(prediction.getCropName())) {
+						assertEquals("0.3", String.valueOf(prediction.getAccuracy()));
+					} else if("Wheat".equals(prediction.getCropName())) {
+						assertEquals("0.3", String.valueOf(prediction.getAccuracy()));
+					} else if("Barly".equals(prediction.getCropName())) {
+						assertEquals("0.3", String.valueOf(prediction.getAccuracy()));
+					} else if("Rice".equals(prediction.getCropName())) {
+						assertEquals("0.3", String.valueOf(prediction.getAccuracy()));
+					}
+				}
+			}
+		}
+	}
+	
+	@Test
+	public void testInUganda() {
+		
+		ArrayList<PredictionResultBean> usResults = cropPredictionHelper.predictCrops("0.7909904981540058", "31.728515625");
+		assertTrue(isCultivatable(usResults));
+		if(usResults != null) {
+			for(PredictionResultBean prediction : usResults) {
+				if(prediction != null) {
+					if("Soybean".equals(prediction.getCropName())) {
+						assertEquals("0.5", String.valueOf(prediction.getAccuracy()));
+					} else if("Wheat".equals(prediction.getCropName())) {
+						assertEquals("0.5", String.valueOf(prediction.getAccuracy()));
+					} else if("Rice".equals(prediction.getCropName())) {
+						assertEquals("0.5", String.valueOf(prediction.getAccuracy()));
+					}
+				}
+			}
+		}
+	}
+	
+	@Test
+	public void testInGhana() {
+		
+		ArrayList<PredictionResultBean> usResults = cropPredictionHelper.predictCrops("6.402648405963896", "-1.0546875");
+		assertTrue(isCultivatable(usResults));
+		if(usResults != null) {
+			for(PredictionResultBean prediction : usResults) {
+				if(prediction != null) {
+					if("Soybean".equals(prediction.getCropName())) {
+						assertEquals("0.5", String.valueOf(prediction.getAccuracy()));
+					} else if("Wheat".equals(prediction.getCropName())) {
+						assertEquals("0.5", String.valueOf(prediction.getAccuracy()));
+					} else if("Rice".equals(prediction.getCropName())) {
+						assertEquals("0.65", String.valueOf(prediction.getAccuracy()));
+					} else if("Barly".equals(prediction.getCropName())) {
+						assertEquals("0.5", String.valueOf(prediction.getAccuracy()));
+					} else if("Corn".equals(prediction.getCropName())) {
+						assertEquals("0.8", String.valueOf(prediction.getAccuracy()));
+					}
+				}
+			}
+		}
+	}
+	
+	@Test
+	public void testInSenegal() {
+		
+		ArrayList<PredictionResultBean> usResults = cropPredictionHelper.predictCrops("14.774882506516272", "-16.083984375");
+		assertTrue(isCultivatable(usResults));
+		if(usResults != null) {
+			for(PredictionResultBean prediction : usResults) {
+				if(prediction != null) {
+					if("Wheat".equals(prediction.getCropName())) {
+						assertEquals("0.5", String.valueOf(prediction.getAccuracy()));
+					} else if("Rice".equals(prediction.getCropName())) {
+						assertEquals("0.3", String.valueOf(prediction.getAccuracy()));
+					} else if("Barly".equals(prediction.getCropName())) {
+						assertEquals("0.3", String.valueOf(prediction.getAccuracy()));
+					} else if("Corn".equals(prediction.getCropName())) {
+						assertEquals("0.5", String.valueOf(prediction.getAccuracy()));
+					}
+				}
+			}
+		}
+	}
+	
+	@Test
+	public void testInMorocco() {
+		
+		ArrayList<PredictionResultBean> usResults = cropPredictionHelper.predictCrops("34.95799531086792", "-5.625");
+		assertTrue(isCultivatable(usResults));
+		if(usResults != null) {
+			for(PredictionResultBean prediction : usResults) {
+				if(prediction != null) {
+					if("Wheat".equals(prediction.getCropName())) {
+						assertEquals("0.5", String.valueOf(prediction.getAccuracy()));
+					} else if("Rice".equals(prediction.getCropName())) {
+						assertEquals("0.3", String.valueOf(prediction.getAccuracy()));
+					} else if("Barly".equals(prediction.getCropName())) {
+						assertEquals("0.3", String.valueOf(prediction.getAccuracy()));
+					} else if("Soybean".equals(prediction.getCropName())) {
+						assertEquals("0.3", String.valueOf(prediction.getAccuracy()));
+					}
+				}
+			}
+		}
+	}
+	
+	@Test
+	public void testInTunisia() {
+		
+		ArrayList<PredictionResultBean> usResults = cropPredictionHelper.predictCrops("36.527294814546245", "9.66796875");
+		assertTrue(isCultivatable(usResults));
+		if(usResults != null) {
+			for(PredictionResultBean prediction : usResults) {
+				if(prediction != null) {
+					if("Wheat".equals(prediction.getCropName())) {
+						assertEquals("0.65", String.valueOf(prediction.getAccuracy()));
+					} else if("Barly".equals(prediction.getCropName())) {
+						assertEquals("0.5", String.valueOf(prediction.getAccuracy()));
+					} else if("Corn".equals(prediction.getCropName())) {
+						assertEquals("0.3", String.valueOf(prediction.getAccuracy()));
+					}
+				}
+			}
+		}
+	}
+	
+	@Test
+	public void testInIndia() {
+		
+		ArrayList<PredictionResultBean> usResults = cropPredictionHelper.predictCrops("12.382928338487396", "79.365234375");
+		assertTrue(isCultivatable(usResults));
+		if(usResults != null) {
+			for(PredictionResultBean prediction : usResults) {
+				if(prediction != null) {
+					if("Wheat".equals(prediction.getCropName())) {
+						assertEquals("0.3", String.valueOf(prediction.getAccuracy()));
+					} else if("Rice".equals(prediction.getCropName())) {
+						assertEquals("0.3", String.valueOf(prediction.getAccuracy()));
 					}
 				}
 			}
@@ -166,15 +470,13 @@ public class CropPredictionTest implements junit.framework.Test {
 	@Test
 	public void testInBrazil() {
 		
-		ArrayList<PredictionResultBean> brazilResults = cropPredictionHelper.predictCrops("-19.186029192399946", "-39.87007141113281");
+		ArrayList<PredictionResultBean> brazilResults = cropPredictionHelper.predictCrops("-16.29509667958126", "-40.595855712890625");
 		assertTrue(isCultivatable(brazilResults));
 		if(brazilResults != null) {
 			for(PredictionResultBean prediction : brazilResults) {
 				if(prediction != null) {
-					if("Soybean".equals(prediction.getCropName())) {
-						assertEquals(String.valueOf(prediction.getAccuracy()), "0.5");
-					} else if("Wheat".equals(prediction.getCropName())) {
-						assertEquals(String.valueOf(prediction.getAccuracy()), "0.5");
+					if("Barly".equals(prediction.getCropName())) {
+						assertEquals("0.3", String.valueOf(prediction.getAccuracy()));
 					}
 				}
 			}
@@ -184,13 +486,15 @@ public class CropPredictionTest implements junit.framework.Test {
 	@Test
 	public void testInUS() {
 		
-		ArrayList<PredictionResultBean> usResults = cropPredictionHelper.predictCrops("31.774877", "-90.911865");
+		ArrayList<PredictionResultBean> usResults = cropPredictionHelper.predictCrops("36.65189429289056", "-103.040771484375");
 		assertTrue(isCultivatable(usResults));
 		if(usResults != null) {
 			for(PredictionResultBean prediction : usResults) {
 				if(prediction != null) {
-					if("Wheat".equals(prediction.getCropName())) {
-						assertEquals(String.valueOf(prediction.getAccuracy()), "0.5");
+					if("Corn".equals(prediction.getCropName())) {
+						assertEquals("0.3", String.valueOf(prediction.getAccuracy()));
+					} else if("Soybean".equals(prediction.getCropName())) {
+						assertEquals("0.3", String.valueOf(prediction.getAccuracy()));
 					}
 				}
 			}
