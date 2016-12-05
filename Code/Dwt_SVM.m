@@ -1,6 +1,6 @@
 clear
 %% Loading data
-DataPath = './data/';
+DataPath = './DataExtraction/';
 load([DataPath, 'DataMat.mat'])
 
 %% Preprocessing ()

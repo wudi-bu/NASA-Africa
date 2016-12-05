@@ -72,6 +72,7 @@ x_test   = x_test_2;
 
 v = zeros(size(x_test,1),5); %allocate output result
 
+netcell = cell(5, 20, 5);
 
 for k = 1:5 %loop over 5 targets
 
@@ -104,6 +105,7 @@ for k = 1:5 %loop over 5 targets
 
                         %train NN with levenberg-marquet algorithm
                         net = trainlm(net, x_train(ii,:)',y(ii,k)');
+                        netcell{n, m, k} = net;
 
                         %apply the network to the test data and acc.
                         y_target = y_target + net(x_test')';
@@ -119,9 +121,10 @@ for k = 1:5 %loop over 5 targets
         v(:,k) = mean(y_target_all')'; %average results
 end
 
+save netcell.mat netcell
 
 %submission
-fd = fopen('My_Submission.csv','w')
+fd = fopen('My_Submission.csv','w');
 
 fprintf(fd,'PIDN,Ca,P,pH,SOC,Sand\n');
 
