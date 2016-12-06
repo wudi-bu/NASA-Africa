@@ -1,5 +1,8 @@
 package com.bu.ece.interactiveMap.cropPrediction;
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Collections;
+
 
 public class CropPrediction {
 	public SoilPropertyBean soilpropertybean = new SoilPropertyBean();
@@ -63,8 +66,15 @@ public class CropPrediction {
 					predictionResultBean.setIs_Cultivatible(false);
 				}
 				PredictionResult.add(predictionResultBean);
-				}	
-			return PredictionResult;		
+				}
+			 Collections.sort(PredictionResult, new Comparator<PredictionResultBean>() {
+				public int compare(PredictionResultBean bean1, PredictionResultBean bean2) {
+				double accuracy1 = bean1.getAccuracy();
+				double accuracy2 = bean2.getAccuracy();
+				return Double.compare(accuracy2,accuracy1);
+				 }
+				 });
+			 return PredictionResult;		
 	}
 
 }
