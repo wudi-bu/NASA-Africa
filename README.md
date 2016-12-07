@@ -27,4 +27,5 @@ our product is a prototype.
 (3)agriculture labs. 
 (4)Furthermore, the website can be integrated to connect
                   with amazon (after suggesting the best crop to grow, we provide possible sellers of seeds and fertilizers via Amazon)
+                  
 Beneficiaries: Farmers, Agricultural Researchers.  
