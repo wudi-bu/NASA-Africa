@@ -34,3 +34,5 @@ Beneficiaries: Farmers, Agricultural Researchers.
 ## Functionality description
 Our website supports 2 usage modes. One is that the user can simply click on the map shown on our front page and if the soil property of that specific location is provided by SOIL-GRID API, the user will see a pop window with the suggested crops and the correspnding accuracy along with what kinds of fertilizers to use to make sure the soil is most proper to grow that specific crops. The other mode is that the user can upload soil properties manually to have us predict which crops to grow and so forth. In this mode, user can also upload the soil spectrum file, we will provide soil property along with the crop prediction information.
 
+## Dependencies
+
