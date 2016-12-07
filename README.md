@@ -29,3 +29,7 @@ our product is a prototype.
                   with amazon (after suggesting the best crop to grow, we provide possible sellers of seeds and fertilizers via Amazon)
                   
 Beneficiaries: Farmers, Agricultural Researchers.  
+
+
+## Functionality description
+
