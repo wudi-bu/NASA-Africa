@@ -5,18 +5,17 @@ E-Soil
 ## Summary
 
 This document describes the soil property prediction and crop suggestion website of the team of Anindya Paul,
-Archana Bajaj, Di Wu and Litao Chen. This is project is originated from a keggle competation which is a soil property prediction
-algorithm based on input spectrum. We implemented the algorithm and further add features like providing suitable crop options based on soil property and suggesting furtilizers to maximize user benefit.
+Archana Bajaj, Di Wu and Litao Chen. This is project is originated from a keggle competation which requires to
+predict 5 target soil functional properties from diffuse reflectance
+infrared spectroscopy measurements.  We implemented the algorithm and further add features like providing suitable crop options based on soil property and suggesting furtilizers to maximize user benefit.
 In general, E-soil is a powerful tool for farmers, scientists and agricultural companies. 
 
 
-
+## Feature selection and extraction
 
 2nd prize solution approach to Africa Soil
 Property Prediction Challenge. [Soil-Prediction challenge](http://www.kaggle.com/c/afsis-soil-properties).
-In this competition it is required to
-predict 5 target soil functional properties from diffuse reflectance
-infrared spectroscopy measurements. 
+In this competition it is 
 The solution consists of two steps: Data preprocessing and model
 prediction. For the preprocessing stage, we used 2 methods, one
 applied for target 1-4 (PIDN/Ca/P/pH/SOC ) and the other for target 5 (Sand).
