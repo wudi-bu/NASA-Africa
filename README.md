@@ -19,7 +19,7 @@ Users:
        or an agricultural Company whose main rigion is in the east and willing to go east, they need infomation on soil property.
 (3)agrologists wishing to keep track of soil varience per year after cultivation.
        
-Paying customer:
+Paying customers:
 (1)governments:In short term,help African farmers,in the long term,by the year of 2030,we will be facing a food crisis,
 if all countries in the wrold decide to cooperate in grwing crops by only grow the most suitable crops to increase food production,
 our product is a prototype.
@@ -27,4 +27,4 @@ our product is a prototype.
 (3)agriculture labs. 
 (4)Furthermore, the website can be integrated to connect
                   with amazon (after suggesting the best crop to grow, we provide possible sellers of seeds and fertilizers via Amazon)
-Beneficiary: Farmers, Agricultural Researchers.  
+Beneficiaries: Farmers, Agricultural Researchers.  
