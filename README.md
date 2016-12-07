@@ -11,7 +11,7 @@ infrared spectroscopy measurements.  We implemented the algorithm and further ad
 In general, E-soil is a powerful tool for farmers, scientists and agricultural companies. 
 
 
-## Feature selection and extraction
+## Use Cases
 
 2nd prize solution approach to Africa Soil
 Property Prediction Challenge. [Soil-Prediction challenge](http://www.kaggle.com/c/afsis-soil-properties).
