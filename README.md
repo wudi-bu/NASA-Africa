@@ -8,7 +8,6 @@ This document describes the soil property prediction and crop suggestion website
 Archana Bajaj, Di Wu and Litao Chen. This is project is originated from a keggle competation which requires to
 predict 5 target soil functional properties from diffuse reflectance
 infrared spectroscopy measurements.  We implemented the algorithm and further add features like providing suitable crop options based on soil property and suggesting furtilizers to maximize user benefit.
-
 In general, E-soil is a powerful tool for farmers, scientists and agricultural companies. 
 
 
