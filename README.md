@@ -13,13 +13,18 @@ In general, E-soil is a powerful tool for farmers, scientists and agricultural c
 
 ## Use Cases
 
-2nd prize solution approach to Africa Soil
-Property Prediction Challenge. [Soil-Prediction challenge](http://www.kaggle.com/c/afsis-soil-properties).
-In this competition it is 
-The solution consists of two steps: Data preprocessing and model
-prediction. For the preprocessing stage, we used 2 methods, one
-applied for target 1-4 (PIDN/Ca/P/pH/SOC ) and the other for target 5 (Sand).
-The second step was to feed the processed features to a neural
-network. In order to ensure that the CV error is stabilized, we had
-to average enough models. We ended up with 100 models to get
-reasonably stable error.  
+Users: 
+(1)Farmers in Africa can use this product to get suggestions on which crop is most suitable to grow based on soil element content.
+(2)Agricultural Companies wishing to maximize their profit by choosing the most suitable to grow based on soil element content
+       or an agricultural Company whose main rigion is in the east and willing to go east, they need infomation on soil property.
+(3)agrologists wishing to keep track of soil varience per year after cultivation.
+       
+Paying customer:
+(1)governments:In short term,help African farmers,in the long term,by the year of 2030,we will be facing a food crisis,
+if all countries in the wrold decide to cooperate in grwing crops by only grow the most suitable crops to increase food production,
+our product is a prototype.
+(2)agricultural Companies
+(3)agriculture labs. 
+(4)Furthermore, the website can be integrated to connect
+                  with amazon (after suggesting the best crop to grow, we provide possible sellers of seeds and fertilizers via Amazon)
+Beneficiary: Farmers, Agricultural Researchers.  
