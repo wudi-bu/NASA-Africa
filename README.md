@@ -4,11 +4,10 @@ E-Soil
 
 ## Summary
 
-This document describes the soil property prediction and crop suggestion website of the team Anindya Paul,
-Archana Bajaj,Di Wu and Litao Chen. This is project is originated from a keggle competation which is a soil property prediction
-algorithms based on input spectrum. We implemented an algorithms and further add features like providing suitable crop options based on soil property and suggesting furtilizers to maximize user benefit.
-and gi
-E-soil is a powerful tool for farmers,scientist 
+This document describes the soil property prediction and crop suggestion website of the team of Anindya Paul,
+Archana Bajaj, Di Wu and Litao Chen. This is project is originated from a keggle competation which is a soil property prediction
+algorithm based on input spectrum. We implemented the algorithm and further add features like providing suitable crop options based on soil property and suggesting furtilizers to maximize user benefit.
+In general, E-soil is a powerful tool for farmers, scientists and agricultural companies. 
 
 
 
