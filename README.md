@@ -34,10 +34,9 @@ Beneficiaries: Farmers, Agricultural Researchers.
 ## Functionality description
 Our website supports 2 usage modes. One is that the user can simply click on the map shown on our front page and if the soil property of that specific location is provided by SOIL-GRID API, the user will see a pop window with the suggested crops and the correspnding accuracy along with what kinds of fertilizers to use to make sure the soil is most proper to grow that specific crops. The other mode is that the user can upload soil properties manually to have us predict which crops to grow and so forth. In this mode, user can also upload the soil spectrum file, we will provide soil property along with the crop prediction information.
 
-## Dependencies
+## Dependencies and Setup Instructions
 Web development:Eclipse Neon.1a Release (4.6.1)
-
-DataBase:Mysql
-
+DataBase: Mysql
 Server: Apache Tomcat v8.5
-The database file is in master brach database folder
+JAVA: JDK1.80
+Our project will be running on cloud(AWS) until the end of this semester. If you are in any interest in setting up another instance, here is an instruction of how to do that. First, you need to download JAVA JDK 1.80, here is a link to that http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html . Do remember the directory of the JDK, you will be needing that to setup Eclipse environment. Second, you need to download The newest version of Mysql, here is a link to that http://www.mysql.com/downloads/ , then you can create a new database and then import the database file provided in the dababase folder. Third, you need to download Tomcat, here is a link to that https://tomcat.apache.org. Finally, you need to download Eclipse, here is a link to that, http://www.eclipse.org/neon/. After installing Eclispe, you should setup the JAVA JDK build path according to the directory of your JDK. Then you can import our project into Eclipse. You need to chage the build path of the project and change the database connection based on your database information along with the Tomcat directory on your computer. Then use ANT to create a WAR file and deploy the WAR file on Tomcat. You are all set to go.
