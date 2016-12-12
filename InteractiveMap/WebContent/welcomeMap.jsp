@@ -42,18 +42,6 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>eSoil - Tools for a greener planet</title>
 		<link rel="icon" type="image/png" href="images/logo.png" />
-		<!-- 
-		<object class="header" style="font-size:23px">
-			<img src="images/esoil.png" alt="Farmer" style="width:120px;height:80px;" />
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<b style="background-color: green">
-				<i> Concerned about what to grow on your land? Let us help you!</i>
-			</b>
-		</object>
-		-->
 	</head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
@@ -167,7 +155,7 @@
 	        	
         		function submitForm() {
         			document.getElementById('id01').style.display='block';
-        			var cropResultsElement = document.getElementById("cropsResults");
+        			var cropResultsElement = document.getElementById("cropsResultsInnerDiv");
         			var calcium = document.getElementById("calcium").value;
         			var soc = document.getElementById("soc").value;
         			var phosphorus = document.getElementById("phosphorus").value;
@@ -274,7 +262,43 @@
 							</table>
 						</div>
 		      		</div>
-		      		<div id="cropsResults"></div>
+		      		<div id="cropsResults">
+					<br/>
+					<style>
+							.progress {
+									height: 50%;
+									width: 200px;
+							}
+							table {
+								font-family: arial, sans-serif;
+								border-collapse: collapse;
+								text-align: center;
+								width: 70%;
+							}
+							td, th {
+								border: 1px solid #dddddd;
+								text-align: center;
+							}
+								
+							tr:nth-child(even) {
+								height: 10%
+								background-color: #dddddd;
+							}
+							table.ex1 {
+								table-layout: fixed;
+							}
+						</style>
+						<head>
+						  <meta charset="utf-8">
+						  <meta name="viewport" content="width=device-width, initial-scale=1">
+						  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+						  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+						  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+						</head>
+						<div id="cropsResultsInnerDiv">
+							
+						</div>
+					</div>
 					<footer class="w3-container w3-teal">
 						<p>E-SOIL</p>
 		      		</footer>

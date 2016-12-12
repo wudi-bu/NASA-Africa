@@ -36,6 +36,12 @@ public class ProcessLocationInformation extends HttpServlet {
 			for(PredictionResultBean prediction : predictionResults) {
 				if(prediction != null) {
 					if(prediction.getIs_Cultivatible()) {
+						
+						if(!cropsPredicted) {
+							out.println("<div id='content'><style> .progress { height: 50%; width: 20%; } table { font-family: arial, sans-serif; border-collapse: collapse; text-align: center; width: 50%; } td, th { border: 1px solid #dddddd; text-align: center; }  tr:nth-child(even) { height: 10% background-color: #dddddd; } table.ex1 { table-layout: fixed; } </style><div id='siteNotice'><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>");
+							out.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script><script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script></div><div id='bodyContent'><table class='ex1'>");
+							out.println("<tr><th width='10%' style='text-align:center;font-size:15px;'>Crops Possible</th><th width='30%' style='text-align:center;font-size:15px;'>Accuracy of prediction</th><th width='20%' style='text-align:center;font-size:15px;'>Extra nutrients needed for cultivation</th></tr>");
+						}
 						cropsPredicted = true;
 						
 						ArrayList<String> soilDeficiencies = new ArrayList<String>();
@@ -73,13 +79,31 @@ public class ProcessLocationInformation extends HttpServlet {
 							deficienciesAsString = deficienciesAsString.substring(0, (deficienciesAsString.length() - 2));
 						}
 						
+						int accuracyPercentage = (int)(prediction.getAccuracy() * 100);
+						String style = "progress-bar progress-bar-danger progress-bar-striped";
+						if(accuracyPercentage > 70) {
+							style = "progress-bar progress-bar-success progress-bar-striped";
+						} else if(accuracyPercentage >= 50) {
+							style = "progress-bar progress-bar-warning progress-bar-striped";
+						}
 						System.out.println("Crop="+prediction.getCropName()+", Accuracy="+prediction.getAccuracy()+", Deficiencies="+deficienciesAsString);
-						out.println("<h6>Crop="+prediction.getCropName()+", Accuracy="+prediction.getAccuracy()+", Deficiencies="+deficienciesAsString+"</h6>");
+						out.println("<tr><td width='10%'><i style='font-size:12px;'>"+prediction.getCropName()+"</i></td>");
+						out.println("<td width='30%'><div class='container'><div class='progress'>");
+						out.println("<div class="+style+" role='progressbar' aria-valuenow="+accuracyPercentage+" aria-valuemin='0' aria-valuemax='100' style='width:"+accuracyPercentage+"%'>");
+						out.println(accuracyPercentage);
+						out.println("</div>");
+						out.println("</div></div></td>");
+						out.println("<td width='20%'><i style='font-size:12px;'>"+deficienciesAsString+"</td>");
+						out.println("</tr>");
 					}
 				}
 			}
+			
+			if(cropsPredicted) {
+				out.println("</table></div></div>");
+			}
 		}
-		
+
 		if(!cropsPredicted) {
 			System.out.println("No crops predicted");
 			out.println("<h4>No crops predicted</h4>");
